@@ -1,0 +1,56 @@
+name: Update gold & silver rates
+
+on:
+  schedule:
+    # GitHub cron is UTC. These are 06:30 and 14:30 IST.
+    - cron: "0 1 * * *"
+    - cron: "0 9 * * *"
+  workflow_dispatch:        # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write           # required so the job can commit the updated file
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Fetch rates
+        run: python goldmeter_rates.py --out rates.json --csv rates.csv
+
+      - name: Verify output before committing
+        run: |
+          python - <<'PY'
+          import json, sys
+          d = json.load(open("rates.json"))
+          ok = [c for c in d["cities"] if c.get("status") == "ok"]
+          print(f"{len(ok)}/{d['count']} cities OK")
+          # Don't publish a broken file - fail loudly instead.
+          if len(ok) < d["count"] * 0.8:
+              sys.exit("FAIL: too many cities missing. Site layout may have changed.")
+          for c in ok:
+              g = c["gold_24k_per_gram"]
+              if not (1000 < g < 100000):
+                  sys.exit(f"FAIL: implausible 24K rate for {c['city']}: {g}")
+          print("Sanity checks passed.")
+          PY
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add rates.json rates.csv
+          if git diff --staged --quiet; then
+            echo "No change in rates."
+          else
+            git commit -m "Rates updated $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
