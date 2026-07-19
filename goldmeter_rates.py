@@ -172,6 +172,30 @@ def finalise(rec):
     return rec
 
 
+
+def cross_fill(rows):
+    """
+    Cities sharing the same 24K rate also share the same 22K/18K rate on
+    GoldMeter. Where one city in a price group was scraped successfully, use
+    that real figure for the others instead of the derived one.
+    """
+    for karat in ("22", "18"):
+        key, skey = f"gold_{karat}k_per_gram", f"gold_{karat}k_source"
+        truth = {}
+        for r in rows:
+            if r.get("status") == "ok" and r.get(skey) == "scraped":
+                truth[r["gold_24k_per_gram"]] = r[key]
+        for r in rows:
+            if r.get("status") != "ok" or r.get(skey) == "scraped":
+                continue
+            real = truth.get(r["gold_24k_per_gram"])
+            if real is not None and real != r[key]:
+                r[key] = real
+                r[skey] = "matched_from_peer_city"
+                r[f"gold_{karat}k_per_10g"] = real * 10
+    return rows
+
+
 def scrape_city(session, build_id, slug, delay):
     rec = {"city": slug.title(), "slug": slug}
     for kind, path in (("gold", f"gold-rate/{slug}"),
@@ -211,6 +235,8 @@ def main(argv=None):
         else:
             print(f"[{i}/{len(args.cities)}] {slug:<15} FAILED - {rec.get('status')}")
         rows.append(rec)
+
+    rows = cross_fill(rows)
 
     payload = {
         "source": BASE,
