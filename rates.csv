@@ -1,18 +1,18 @@
 city,slug,gold_24k_per_gram,gold_22k_per_gram,gold_18k_per_gram,gold_24k_per_10g,gold_22k_per_10g,gold_18k_per_10g,silver_per_gram,silver_per_kg,gold_22k_source,status
 Ahmedabad,ahmedabad,15207,13940,11405,152070,139400,114050,245.0,245000.0,derived_from_24k,ok
-Ayodhya,ayodhya,15217,13950,11413,152170,139500,114130,245.0,245000.0,matched_from_peer_city,ok
+Ayodhya,ayodhya,15217,13949,11413,152170,139490,114130,245.0,245000.0,derived_from_24k,ok
 Bangalore,bangalore,15202,13935,11402,152020,139350,114020,245.0,245000.0,scraped,ok
 Bhubaneswar,bhubaneswar,15202,13935,11402,152020,139350,114020,250.0,250000.0,derived_from_24k,ok
-Chandigarh,chandigarh,15217,13950,11413,152170,139500,114130,245.0,245000.0,matched_from_peer_city,ok
+Chandigarh,chandigarh,15217,13949,11413,152170,139490,114130,245.0,245000.0,derived_from_24k,ok
 Chennai,chennai,15202,13935,11402,152020,139350,114020,250.0,250000.0,scraped,ok
 Coimbatore,coimbatore,15202,13935,11402,152020,139350,114020,250.0,250000.0,derived_from_24k,ok
-Delhi,delhi,15217,13950,11413,152170,139500,114130,245.0,245000.0,matched_from_peer_city,ok
+Delhi,delhi,15217,13949,11413,152170,139490,114130,,,derived_from_24k,ok
 Hyderabad,hyderabad,15202,13935,11402,152020,139350,114020,250.0,250000.0,scraped,ok
-Jaipur,jaipur,15217,13950,11413,152170,139500,114130,245.0,245000.0,scraped,ok
+Jaipur,jaipur,,,,,,,,,,no 24K rate found - unusable
 Kerala,kerala,15202,13935,11402,152020,139350,114020,250.0,250000.0,derived_from_24k,ok
 Kolkata,kolkata,15202,13935,11402,152020,139350,114020,245.0,245000.0,derived_from_24k,ok
-Lucknow,lucknow,15217,13950,11413,152170,139500,114130,245.0,245000.0,matched_from_peer_city,ok
-Madurai,madurai,15202,13935,11402,152020,139350,114020,250.0,250000.0,derived_from_24k,ok
+Lucknow,lucknow,15217,13949,11413,152170,139490,114130,245.0,245000.0,derived_from_24k,ok
+Madurai,madurai,,,,,,,250.0,250000.0,,no 24K rate found - unusable
 Mangalore,mangalore,15202,13935,11402,152020,139350,114020,245.0,245000.0,derived_from_24k,ok
 Moodbidri,moodbidri,15202,13935,11402,152020,139350,114020,245.0,245000.0,derived_from_24k,ok
 Mumbai,mumbai,15202,13935,11402,152020,139350,114020,245.0,245000.0,scraped,ok

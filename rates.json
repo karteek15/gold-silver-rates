@@ -1,6 +1,6 @@
 {
   "source": "https://goldmeter.in",
-  "scraped_at": "2026-09-03T05:34:16.459527+00:00",
+  "scraped_at": "2026-09-03T13:17:43.625837+00:00",
   "currency": "INR",
   "count": 29,
   "notes": [
@@ -33,13 +33,13 @@
       "gold_24k_per_gram": 15217,
       "silver_per_gram": 245.0,
       "silver_per_kg": 245000.0,
-      "gold_22k_per_gram": 13950,
-      "gold_22k_source": "matched_from_peer_city",
+      "gold_22k_per_gram": 13949,
+      "gold_22k_source": "derived_from_24k",
       "gold_18k_per_gram": 11413,
       "gold_18k_source": "derived_from_24k",
       "gold_24k_source": "scraped",
       "gold_24k_per_10g": 152170,
-      "gold_22k_per_10g": 139500,
+      "gold_22k_per_10g": 139490,
       "gold_18k_per_10g": 114130,
       "status": "ok"
     },
@@ -81,13 +81,13 @@
       "gold_24k_per_gram": 15217,
       "silver_per_gram": 245.0,
       "silver_per_kg": 245000.0,
-      "gold_22k_per_gram": 13950,
-      "gold_22k_source": "matched_from_peer_city",
+      "gold_22k_per_gram": 13949,
+      "gold_22k_source": "derived_from_24k",
       "gold_18k_per_gram": 11413,
       "gold_18k_source": "derived_from_24k",
       "gold_24k_source": "scraped",
       "gold_24k_per_10g": 152170,
-      "gold_22k_per_10g": 139500,
+      "gold_22k_per_10g": 139490,
       "gold_18k_per_10g": 114130,
       "status": "ok"
     },
@@ -127,15 +127,16 @@
       "city": "Delhi",
       "slug": "delhi",
       "gold_24k_per_gram": 15217,
-      "silver_per_gram": 245.0,
-      "silver_per_kg": 245000.0,
-      "gold_22k_per_gram": 13950,
-      "gold_22k_source": "matched_from_peer_city",
+      "errors": [
+        "silver: HTTPSConnectionPool(host='goldmeter.in', port=443): Read timed out. (read timeout=20)"
+      ],
+      "gold_22k_per_gram": 13949,
+      "gold_22k_source": "derived_from_24k",
       "gold_18k_per_gram": 11413,
       "gold_18k_source": "derived_from_24k",
       "gold_24k_source": "scraped",
       "gold_24k_per_10g": 152170,
-      "gold_22k_per_10g": 139500,
+      "gold_22k_per_10g": 139490,
       "gold_18k_per_10g": 114130,
       "status": "ok"
     },
@@ -158,18 +159,11 @@
     {
       "city": "Jaipur",
       "slug": "jaipur",
-      "gold_24k_per_gram": 15217,
-      "gold_22k_per_gram": 13950,
-      "silver_per_gram": 245.0,
-      "silver_per_kg": 245000.0,
-      "gold_22k_source": "scraped",
-      "gold_18k_per_gram": 11413,
-      "gold_18k_source": "derived_from_24k",
-      "gold_24k_source": "scraped",
-      "gold_24k_per_10g": 152170,
-      "gold_22k_per_10g": 139500,
-      "gold_18k_per_10g": 114130,
-      "status": "ok"
+      "errors": [
+        "gold: HTTPSConnectionPool(host='goldmeter.in', port=443): Read timed out. (read timeout=20)",
+        "silver: HTTPSConnectionPool(host='goldmeter.in', port=443): Read timed out. (read timeout=20)"
+      ],
+      "status": "no 24K rate found - unusable"
     },
     {
       "city": "Kerala",
@@ -209,31 +203,25 @@
       "gold_24k_per_gram": 15217,
       "silver_per_gram": 245.0,
       "silver_per_kg": 245000.0,
-      "gold_22k_per_gram": 13950,
-      "gold_22k_source": "matched_from_peer_city",
+      "gold_22k_per_gram": 13949,
+      "gold_22k_source": "derived_from_24k",
       "gold_18k_per_gram": 11413,
       "gold_18k_source": "derived_from_24k",
       "gold_24k_source": "scraped",
       "gold_24k_per_10g": 152170,
-      "gold_22k_per_10g": 139500,
+      "gold_22k_per_10g": 139490,
       "gold_18k_per_10g": 114130,
       "status": "ok"
     },
     {
       "city": "Madurai",
       "slug": "madurai",
-      "gold_24k_per_gram": 15202,
+      "errors": [
+        "gold: HTTPSConnectionPool(host='goldmeter.in', port=443): Read timed out. (read timeout=20)"
+      ],
       "silver_per_gram": 250.0,
       "silver_per_kg": 250000.0,
-      "gold_22k_per_gram": 13935,
-      "gold_22k_source": "derived_from_24k",
-      "gold_18k_per_gram": 11402,
-      "gold_18k_source": "derived_from_24k",
-      "gold_24k_source": "scraped",
-      "gold_24k_per_10g": 152020,
-      "gold_22k_per_10g": 139350,
-      "gold_18k_per_10g": 114020,
-      "status": "ok"
+      "status": "no 24K rate found - unusable"
     },
     {
       "city": "Mangalore",
